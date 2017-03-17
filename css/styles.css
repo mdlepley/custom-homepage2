@@ -1,0 +1,90 @@
+@import url("reset.css");
+@import url("typographyReset.css");
+@import url("floatFix.css");
+/* @import url("icons.css"); */
+
+/*
+ * Main CSS file
+ *
+ * Author: Matt Lepley
+ * Version: 1.0
+ *
+
+ ====== Table of Contents ======
+
+ 1. Global Styles
+ 2. Navigation
+ 3. Content
+ 4. Footer
+ 5. Miscellaneous
+
+ ====== Style Guide ============
+
+	-- Colors --
+
+	-- Typography --
+
+
+ ******************************/
+
+/*
+	====== Global Styles ======
+*/
+html{
+
+}
+
+body{
+	background-color: #693;
+	background: url('../images/geometry_25-blur.jpg') fixed;
+}
+
+
+/*
+	====== Navigation ============
+*/
+
+
+/*
+	====== Content ============
+*/
+#react-clock {
+	position: relative;
+	width: 40em;
+	margin: 0 auto;
+	top: 100px;
+	text-align: center;
+	color: #ffffff;
+}
+
+#react-clock .glass {
+	height: 50px;
+	border-style: solid;
+	border-color: rgba(255,255,255,0.3);
+	border-top-width: 18px;
+	border-right-width: 40px;
+	border-bottom-width: 18px;
+	border-left-width: 40px;
+	-webkit-transform: skewx(-60deg);
+}
+
+#react-clock .main-clock {
+	position: relative;
+	top: -150px;
+	font-family: Helvetica;
+	font-size: 6em;
+	color: #fff;
+	padding: 6px;
+	-webkit-box-reflect: below -88px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(40%, transparent), to(rgba(255,255,255,0.3)));
+	/* -webkit-transform: skewX(60deg); */
+}
+
+
+/*
+	====== Footer ============
+*/
+
+
+/*
+	====== Miscellaneous ============
+*/
