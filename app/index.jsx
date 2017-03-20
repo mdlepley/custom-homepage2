@@ -7,17 +7,13 @@ class ReactClock extends React.Component {
     super(props);
 
     this.state = {
-      time: new Date().toLocaleTimeString()
+      //time: new Date().toLocaleTimeString()
     }
-  }
-
-  tick(ev) {
-    this.setState({ time: ev.target.value })
   }
 
   render() {
     return (
-      <Clock time={ this.state.time } className='main-clock' />
+      <Clock className='main-clock' />
     )
   }
 }
