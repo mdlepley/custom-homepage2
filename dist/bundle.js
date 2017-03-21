@@ -9452,7 +9452,7 @@ module.exports = __webpack_require__(109);
 
 /* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/mattlepley/SoftwareDev/custom-homepage2/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/mattlepley/SoftwareDev/custom-homepage2/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -9487,7 +9487,7 @@ var Clock = function (_React$Component) {
   }
 
   _createClass(Clock, [{
-    key: 'componentDidMount',
+    key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
 
@@ -9496,25 +9496,32 @@ var Clock = function (_React$Component) {
       }, 1000);
     }
   }, {
-    key: 'componentWillUnmount',
+    key: "componentWillUnmount",
     value: function componentWillUnmount() {
       clearInterval(this.timeID);
     }
   }, {
-    key: 'tick',
+    key: "tick",
     value: function tick() {
       this.setState({
         date: new Date()
       });
     }
   }, {
-    key: 'render',
+    key: "render",
     value: function render() {
       return _react2.default.createElement(
-        'div',
-        null,
-        this.state.date.toLocaleTimeString()
-      );
+        "div",
+        { className: "clock" },
+        _react2.default.createElement("div", { className: "glass" }),
+        _react2.default.createElement(
+          "h1",
+          { className: "main-clock" },
+          this.state.date.toLocaleTimeString()
+        )
+      )
+      // <div>{ this.state.date.toLocaleTimeString() }</div>
+      ;
     }
   }]);
 
@@ -21803,7 +21810,7 @@ var ReactClock = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (ReactClock.__proto__ || Object.getPrototypeOf(ReactClock)).call(this, props));
 
     _this.state = {
-      //time: new Date().toLocaleTimeString()
+      // empty
     };
     return _this;
   }
@@ -21818,25 +21825,25 @@ var ReactClock = function (_React$Component) {
   return ReactClock;
 }(_react2.default.Component);
 
-_reactDom2.default.render(_react2.default.createElement(ReactClock, null), document.getElementById('react-clock-2'));
+_reactDom2.default.render(_react2.default.createElement(ReactClock, null), document.getElementById('react-clock'));
 
 // old, but working-ish, clock code
-function tick() {
-  var element = _react2.default.createElement(
-    'div',
-    { className: 'clock' },
-    _react2.default.createElement('div', { className: 'glass' }),
-    _react2.default.createElement(
-      'h1',
-      { className: 'main-clock' },
-      new Date().toLocaleTimeString()
-    )
-  );
-  _reactDom2.default.render(element, document.getElementById('react-clock'));
-}
+// function tick() {
+//   const element = (
+//     <div className="clock">
+// 			<div className="glass"></div>
+// 			<h1 className="main-clock">{new Date().toLocaleTimeString()}</h1>
+// 		</div>
+//   );
+//   ReactDOM.render(
+//     element,
+//     document.getElementById('react-clock')
+//   );
+// }
+//
+// //setInterval(startTime, 500);
+// setInterval(tick, 1000);
 
-//setInterval(startTime, 500);
-setInterval(tick, 1000);
 
 // var inspirationalQuotes = [
 // 	'What will you do today, Napoleon?'
