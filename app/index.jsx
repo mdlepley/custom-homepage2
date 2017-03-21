@@ -7,42 +7,18 @@ class ReactClock extends React.Component {
     super(props);
 
     this.state = {
-      time: new Date().toLocaleTimeString()
+      // empty
     }
-  }
-
-  tick(ev) {
-    this.setState({ time: ev.target.value })
   }
 
   render() {
     return (
-      <Clock time={ this.state.time } className='main-clock' />
+      <Clock className='main-clock' />
     )
   }
 }
 
-ReactDOM.render(<ReactClock /> , document.getElementById('react-clock-2'));
-
-
-
-// old, but working-ish, clock code
-function tick() {
-  const element = (
-    <div className="clock">
-			<div className="glass"></div>
-			<h1 className="main-clock">{new Date().toLocaleTimeString()}</h1>
-		</div>
-  );
-  ReactDOM.render(
-    element,
-    document.getElementById('react-clock')
-  );
-}
-
-//setInterval(startTime, 500);
-setInterval(tick, 1000);
-
+ReactDOM.render(<ReactClock /> , document.getElementById('react-clock'));
 
 
 // var inspirationalQuotes = [

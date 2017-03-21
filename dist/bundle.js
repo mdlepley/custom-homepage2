@@ -9452,7 +9452,7 @@ module.exports = __webpack_require__(109);
 
 /* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/mattlepley/SoftwareDev/custom-homepage2/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/mattlepley/SoftwareDev/custom-homepage2/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -9481,19 +9481,47 @@ var Clock = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Clock.__proto__ || Object.getPrototypeOf(Clock)).call(this, props));
 
     _this.state = {
-      time: new Date().toLocaleTimeString()
+      date: new Date()
     };
     return _this;
   }
 
   _createClass(Clock, [{
-    key: 'render',
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      this.timerID = setInterval(function () {
+        return _this2.tick();
+      }, 1000);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      clearInterval(this.timeID);
+    }
+  }, {
+    key: "tick",
+    value: function tick() {
+      this.setState({
+        date: new Date()
+      });
+    }
+  }, {
+    key: "render",
     value: function render() {
       return _react2.default.createElement(
-        'div',
-        null,
-        this.state.time
-      );
+        "div",
+        { className: "clock" },
+        _react2.default.createElement("div", { className: "glass" }),
+        _react2.default.createElement(
+          "h1",
+          { className: "main-clock" },
+          this.state.date.toLocaleTimeString()
+        )
+      )
+      // <div>{ this.state.date.toLocaleTimeString() }</div>
+      ;
     }
   }]);
 
@@ -9504,11 +9532,11 @@ exports.default = Clock;
 
 
 Clock.propTypes = {
-  time: _react2.default.PropTypes.string
+  date: _react2.default.PropTypes.string
 };
 
 Clock.defaultProps = {
-  time: new Date().toLocaleTimeString()
+  date: new Date().toLocaleTimeString()
 };
 
 /* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/mattlepley/SoftwareDev/custom-homepage2/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "clock.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
@@ -21782,45 +21810,40 @@ var ReactClock = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (ReactClock.__proto__ || Object.getPrototypeOf(ReactClock)).call(this, props));
 
     _this.state = {
-      time: new Date().toLocaleTimeString()
+      // empty
     };
     return _this;
   }
 
   _createClass(ReactClock, [{
-    key: 'tick',
-    value: function tick(ev) {
-      this.setState({ time: ev.target.value });
-    }
-  }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(_clock2.default, { time: this.state.time, className: 'main-clock' });
+      return _react2.default.createElement(_clock2.default, { className: 'main-clock' });
     }
   }]);
 
   return ReactClock;
 }(_react2.default.Component);
 
-_reactDom2.default.render(_react2.default.createElement(ReactClock, null), document.getElementById('react-clock-2'));
+_reactDom2.default.render(_react2.default.createElement(ReactClock, null), document.getElementById('react-clock'));
 
 // old, but working-ish, clock code
-function tick() {
-  var element = _react2.default.createElement(
-    'div',
-    { className: 'clock' },
-    _react2.default.createElement('div', { className: 'glass' }),
-    _react2.default.createElement(
-      'h1',
-      { className: 'main-clock' },
-      new Date().toLocaleTimeString()
-    )
-  );
-  _reactDom2.default.render(element, document.getElementById('react-clock'));
-}
+// function tick() {
+//   const element = (
+//     <div className="clock">
+// 			<div className="glass"></div>
+// 			<h1 className="main-clock">{new Date().toLocaleTimeString()}</h1>
+// 		</div>
+//   );
+//   ReactDOM.render(
+//     element,
+//     document.getElementById('react-clock')
+//   );
+// }
+//
+// //setInterval(startTime, 500);
+// setInterval(tick, 1000);
 
-//setInterval(startTime, 500);
-setInterval(tick, 1000);
 
 // var inspirationalQuotes = [
 // 	'What will you do today, Napoleon?'

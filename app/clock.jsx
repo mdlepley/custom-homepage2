@@ -5,21 +5,41 @@ export default class Clock extends React.Component {
     super(props);
 
     this.state = {
-      time: new Date().toLocaleTimeString()
+      date: new Date()
     };
+  }
+
+  componentDidMount() {
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timeID);
+  }
+
+  tick() {
+    this.setState({
+      date: new Date()
+    });
   }
 
   render() {
     return (
-      <div>{ this.state.time }</div>
+      <div className="clock">
+  			<div className="glass"></div>
+  			<h1 className="main-clock">{ this.state.date.toLocaleTimeString() }</h1>
+  		</div>
     )
   }
 }
 
 Clock.propTypes = {
-  time: React.PropTypes.string
+  date: React.PropTypes.string
 };
 
 Clock.defaultProps = {
-  time: new Date().toLocaleTimeString()
+  date: new Date().toLocaleTimeString()
 };
