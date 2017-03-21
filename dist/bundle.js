@@ -9519,9 +9519,7 @@ var Clock = function (_React$Component) {
           { className: "main-clock" },
           this.state.date.toLocaleTimeString()
         )
-      )
-      // <div>{ this.state.date.toLocaleTimeString() }</div>
-      ;
+      );
     }
   }]);
 
@@ -21827,27 +21825,7 @@ var ReactClock = function (_React$Component) {
 
 _reactDom2.default.render(_react2.default.createElement(ReactClock, null), document.getElementById('react-clock'));
 
-// old, but working-ish, clock code
-// function tick() {
-//   const element = (
-//     <div className="clock">
-// 			<div className="glass"></div>
-// 			<h1 className="main-clock">{new Date().toLocaleTimeString()}</h1>
-// 		</div>
-//   );
-//   ReactDOM.render(
-//     element,
-//     document.getElementById('react-clock')
-//   );
-// }
-//
-// //setInterval(startTime, 500);
-// setInterval(tick, 1000);
-
-
-// var inspirationalQuotes = [
-// 	'What will you do today, Napoleon?'
-// ];
+var inspirationalQuotes = ['What will you do today, Napoleon?'];
 
 /* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/mattlepley/SoftwareDev/custom-homepage2/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "index.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 

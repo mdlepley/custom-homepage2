@@ -21,6 +21,6 @@ class ReactClock extends React.Component {
 ReactDOM.render(<ReactClock /> , document.getElementById('react-clock'));
 
 
-// var inspirationalQuotes = [
-// 	'What will you do today, Napoleon?'
-// ];
+var inspirationalQuotes = [
+	'What will you do today, Napoleon?'
+];
