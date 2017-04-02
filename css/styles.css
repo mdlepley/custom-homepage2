@@ -38,7 +38,7 @@ html {}
 
 body {
     background-color: #693;
-    background: url('../images/geometry_25-blur.jpg') fixed;
+    background: url('https://i.ytimg.com/vi/c7oV1T2j5mc/maxresdefault.jpg') fixed; /*url('../images/arlberg-pass.jpg') fixed;*/
 }
 
 
@@ -55,7 +55,7 @@ body {
     position: relative;
     width: 40em;
     margin: 0 auto;
-    top: 100px;
+    top: 150px;
     text-align: center;
     color: #ffffff;
 }
@@ -94,6 +94,10 @@ body {
     color: #ffffff;
 }
 
+#react-inspire .inspire > p {
+  line-height: 1.4em;
+}
+
 #react-inspire .quote {
     font-style: italic;
     font-family: serif;
@@ -103,11 +107,15 @@ body {
 
 /* need to look up how to do these ::before and ::after things */
 #react-inspire .quote::before {
-	/* need to add a pre- quotation mark */
+  content: open-quote;
 }
 
 #react-inspire .quote::after {
-	/* need to add a post- quotation mark */
+  content: close-quote;
+}
+
+#react-inspire .author::before {
+  content: "-";
 }
 
 

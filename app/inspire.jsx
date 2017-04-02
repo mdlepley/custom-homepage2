@@ -32,8 +32,8 @@ export default class Inspire extends React.Component {
   render() {
     return (
       <div className="inspire">
-        <span className="quote">{ this.state.quotes[0].quote }</span>
-        <span className="author">{ this.state.quotes[0].author }</span>
+        <p className="quote">{ this.state.quotes[0].quote }</p>
+        <p className="author">{ this.state.quotes[0].author }</p>
       </div>
     )
   }

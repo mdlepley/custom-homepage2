@@ -9607,12 +9607,12 @@ var Inspire = function (_React$Component) {
         'div',
         { className: 'inspire' },
         _react2.default.createElement(
-          'span',
+          'p',
           { className: 'quote' },
           this.state.quotes[0].quote
         ),
         _react2.default.createElement(
-          'span',
+          'p',
           { className: 'author' },
           this.state.quotes[0].author
         )
