@@ -9575,30 +9575,51 @@ var Inspire = function (_React$Component) {
 
     _this.state = {
       quotes: [{
-        quote: 'What will you do today, Napoleon?',
+        text: 'What will you do today, Napoleon?',
         author: 'kid on the bus'
       }, {
-        quote: 'Get out and live your life!',
+        text: 'Get out and live your life!',
         author: 'French Robin Williams'
-      }]
+      }, {
+        text: 'You\'re a beautiful unicorn with a horn that can pierce the sky.',
+        author: 'Melanie'
+      }],
+      quote: function quote() {
+        return this.quotes[this.getRandomArbitrary(0, this.quotes.length)];
+      }
     };
     return _this;
-  }
+  } // end constructor
 
   _createClass(Inspire, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      //pickQuote();
-    }
-  }, {
-    key: 'pickQuote',
-    value: function pickQuote() {
-      return '';
-    }
-  }, {
     key: 'getRandomArbitrary',
     value: function getRandomArbitrary(min, max) {
-      return Math.floor(Math.random(0, 1));
+      return Math.floor(Math.random() * (min - max));
+    }
+  }, {
+    key: 'getQuote',
+    value: function getQuote() {
+      var n = this.getRandomArbitrary(0, this.state.quotes.length);
+      return this.state.quotes[n];
+    }
+  }, {
+    key: 'renderQuote',
+    value: function renderQuote() {
+      var quote = this.getQuote();
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'p',
+          { className: 'quote' },
+          quote.text
+        ),
+        _react2.default.createElement(
+          'p',
+          { className: 'author' },
+          quote.author
+        )
+      );
     }
   }, {
     key: 'render',
@@ -9609,12 +9630,12 @@ var Inspire = function (_React$Component) {
         _react2.default.createElement(
           'p',
           { className: 'quote' },
-          this.state.quotes[0].quote
+          this.state.quote.text
         ),
         _react2.default.createElement(
           'p',
           { className: 'author' },
-          this.state.quotes[0].author
+          this.state.quote.author
         )
       );
     }
@@ -9627,11 +9648,15 @@ exports.default = Inspire;
 
 
 Inspire.propTypes = {
-  quotes: _react2.default.PropTypes.array
+  quotes: _react2.default.PropTypes.array,
+  quote: _react2.default.PropTypes.func
 };
 
 Inspire.defaultProps = {
-  quotes: []
+  quotes: [],
+  quote: function quote() {
+    return false;
+  }
 };
 
 /* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/mattlepley/SoftwareDev/custom-homepage2/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "inspire.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
